@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <OutputType>Exe</OutputType>
+    <UseWindowsForms>True</UseWindowsForms>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Protos\fingerprint.proto" />
+    <None Remove="Protos\signature.proto" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="Protos\fingerprint.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\greet.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\signature.proto" GrpcServices="Server" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.58.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Wacom-Rpc-Test\WinformServer\WinformServer.csproj" />
+    <ProjectReference Include="..\DemoButtons (save option)\DemoButtons.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Interop.wgssSTU">
+      <HintPath>..\..\wacom-pad\wacom-pad\bin\Debug\Interop.wgssSTU.dll</HintPath>
+    </Reference>
+    <Reference Include="SecuGen.FDxSDKPro.Windows">
+      <HintPath>C:\Users\ACER\Downloads\Compressed\FDx SDK Pro for Windows v4.21_J1.12\FDx SDK Pro for Windows v4.21\DotNETFramework\Bin\i386\SecuGen.FDxSDKPro.Windows.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

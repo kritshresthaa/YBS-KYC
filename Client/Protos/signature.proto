@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcClient";
+service WacomSignature{
+	 // Method to initialize the device
+    rpc InitializeWacomDevice  (InitializeWacomRequest) returns (InitializeWacomResponse);
+}
+
+message InitializeWacomRequest {
+    // You can include any request parameters needed for initialization here
+}
+
+message InitializeWacomResponse {
+    bool success = 1;
+    string ErrorMessage = 2;
+    // You can include response data, such as success or error messages, here
+}

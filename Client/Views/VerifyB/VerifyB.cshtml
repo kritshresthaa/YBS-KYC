@@ -1,0 +1,114 @@
+﻿@model Client.Models.KYC.FamilyDetail
+@if (TempData["success"] != null)
+{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script type="text/javascript">
+        toastr.success('@TempData["success"]')
+    </script>
+}
+@if (TempData["error"] != null)
+{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script type="text/javascript">
+        toastr.error('@TempData["success"]')
+    </script>
+}
+
+<div class="sectionb ">
+    <div class="text-center font-semibold">
+        <p>Detail of Family Member of Account Holder</p>
+
+    </div>
+    <form method="post">
+        <input asp-for="Id" class="hidden" />
+        <div class="mb-2">
+            <div class="mb-4">
+                <p class="hidden" asp-for="">
+                    @ViewBag.getId
+                </p>
+                <label for="motherName"
+                       class="block text-gray-700 font-medium mb-2">Mother's Name</label>
+                <input type="text"
+                       id="motherName"
+                       name="motherName"
+                       asp-for="MotherName"
+                       class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                       placeholder="Enter your mother's name"
+                       required />
+            </div>
+
+            <div class="mb-4">
+                <label for="son"
+                       class="block text-gray-700 font-medium mb-2">Son</label>
+                <input type="text"
+                       asp-for="SonName"
+                       class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                       placeholder="Enter son's name" />
+            </div>
+
+            <div class="mb-4">
+                <label for="daughter"
+                       class="block text-gray-700 font-medium mb-2">Daughter</label>
+                <input type="text"
+                       asp-for="DaughterName"
+                       class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                       placeholder="Enter daughter's name" />
+            </div>
+
+            <div class="mb-4">
+                <label for="daughterInLaw"
+                       class="block text-gray-700 font-medium mb-2">Daughter-in-Law</label>
+                <input type="text"
+                       id="daughterInLaw"
+                       name="daughterInLaw"
+                       asp-for="DaughterInLaw"
+                       class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                       placeholder="Enter daughter-in-law's name" />
+            </div>
+
+            <div>
+                <label for="fatherInLaw"
+                       class="block text-gray-700 font-medium mb-2">Father-in-Law</label>
+                <input type="text"
+                       id="fatherInLaw"
+                       name="fatherInLaw"
+                       asp-for="FatherInLaw"
+                       class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                       placeholder="Enter father-in-law's name" />
+            </div>
+        </div>
+        <div class="mb-4">
+            <label for="panNumber"
+                   class="block text-gray-700 font-medium mb-2">PAN Number</label>
+            <input type="text"
+                   id="panNumber"
+                   name="panNumber"
+                   asp-for="PanNumber"
+                   class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                   placeholder="Enter your PAN number"
+                   required />
+        </div>
+        <div class="mb-4">
+            <label for="sourceofIncome"
+                   class="block text-gray-700 font-medium mb-2">Source of Income</label>
+            <input type="text"
+                   id="sourceofIncome"
+                   name="sourceofIncome"
+                   asp-for="SourceOfIncome"
+                   class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                   placeholder="Source of Income"
+                   required />
+        </div>
+
+
+        <button id="nextToC"
+                class="bg-blue-500 text-white px-4 py-2 rounded-lg">
+            Confirm
+        </button>
+    </form>
+
+</div>
+
+

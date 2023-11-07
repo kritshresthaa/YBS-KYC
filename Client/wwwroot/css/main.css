@@ -1,0 +1,17 @@
+﻿@keyframes blink {
+    0% {
+        color: rgba(59, 130, 246, var(--tw-bg-opacity)); /* Use rgba to specify opacity */
+    }
+
+    50% {
+        color: transparent;
+    }
+
+    100% {
+        color: rgba(59, 130, 246, var(--tw-bg-opacity));
+    }
+}
+
+.blinking {
+    animation: blink 1s infinite;
+}

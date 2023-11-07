@@ -1,0 +1,230 @@
+﻿@model Client.Models.ViewModels.AddUserDetailsRequest
+
+@if (TempData["success"] != null)
+{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script type="text/javascript">
+        toastr.success('@TempData["success"]')
+    </script>
+}
+@if (TempData["error"] != null)
+{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script type="text/javascript">
+        toastr.error('@TempData["success"]')
+    </script>
+}
+
+<!-- Inner -->
+    <div class="sectiona">
+        <div class="text-center font-semibold">
+            <p>Detail of Account Holder</p>
+        </div>
+        <form method="post">
+        <div class="mb-2">
+            <label for="account"
+                   class="block text-gray-700 font-medium mb-2">Account Number</label>
+            <input type="number"
+                   id="account"
+                   asp-for="AccountNumber"
+                   class="w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                   placeholder="Enter your account number"
+                   required />
+        </div>
+        <button id="clearAccount" 
+                class="bg-red-600 text-white p-1 rounded hover:bg-red-700 focus:outline-none mb-2">
+            Clear
+        </button>
+        <div class="flex justify-between mb-2">
+            <div class="w-[30%]">
+                <label 
+                       class="block text-gray-700 font-medium mb-2">Name</label>
+                <input type="text"
+                       asp-for="UserName"
+
+                       class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                       placeholder="Enter your name"
+                       required />
+            </div>
+            <div class="w-[30%]">
+                <label for="mobile"
+                       class="block text-gray-700 font-medium mb-2">Mobile Number</label>
+                <input type="number"
+                       asp-for="UserNumber"
+
+                       class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                       placeholder="Enter your mobile number"
+                       required />
+            </div>
+            <div class="w-[30%]">
+                <label for="dob" class="block text-gray-700 font-medium">Date of Birth</label>
+                <input type="date"
+                       asp-for="UserDob"
+                       id="dob"
+                       name="dob"
+                       class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                       required />
+            </div>
+
+        </div>
+        <!--Permament Address -->
+        <div class="mb-2">
+            <label for="mobile"
+                   class="block text-gray-700 font-medium mb-2">Address</label>
+            <div class="flex justify-between">
+                <div class="w-[18%]">
+                    <input type="text"
+                           asp-for="District"
+                           class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                           placeholder="District"
+                           required />
+                </div>
+                <div class="w-[18%]">
+                    <input type="text"
+                           asp-for="Municipality"
+                           class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                           placeholder="Municipality/VDC"
+                           required />
+                </div>
+                <div class="w-[18%]">
+                    <input type="text"
+                           asp-for="Tole"
+                           class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                           placeholder="Village/Tole"
+                           required />
+                </div>
+                <div class="w-[18%]">
+                    <input type="number"
+                           asp-for="HouseNumber"
+                       
+                           class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                           placeholder="House No." />
+                </div>
+                <div class="w-[18%]">
+                    <input type="number"
+                           asp-for="WardNumber"
+                          
+                           class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                           placeholder="Ward No."
+                           required />
+                </div>
+            </div>
+        </div>
+        <!-- Education -->
+        <!-- Father -->
+        <!-- Grandfather -->
+        <!-- Spouse -->
+        <div class="flex justify-between mb-2">
+            <div class="w-[20%]">
+                <label 
+                       class="block text-gray-700 font-medium mb-2">Education</label>
+                <input type="text"
+                       asp-for="Education"
+                        placeholder="Optional"
+                       class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+   
+                        />
+            </div>
+            <div class="w-[20%]">
+                <label for="mobile"
+                       class="block text-gray-700 font-medium mb-2">Father</label>
+                <input type="text"
+                       asp-for="FatherName"
+                       class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                       placeholder="Enter your father's name"
+                       required />
+            </div>
+            <div class="w-[20%]">
+                <label for="mobile"
+                       class="block text-gray-700 font-medium mb-2">Grandfather</label>
+                <input type="text"
+                       asp-for="GrandFatherName"
+                       class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                       placeholder="Enter your grandfather name"
+                       required />
+            </div>
+            <div class="w-[20%]">
+                <label for="mobile"
+                       class="block text-gray-700 font-medium mb-2">Spouse</label>
+                <input type="text"
+                       asp-for="Spouse"
+                       class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                       placeholder="Optional"
+                        />
+            </div>
+        </div>
+
+        <!-- Occupation Institution Designation Annual Transaction -->
+        <div class="flex justify-between mb-2">
+            <div class="w-[20%]">
+                <label for="mobile"
+                       class="block text-gray-700 font-medium mb-2">Occupation/Business</label>
+                <input type="text"
+                       asp-for="Occupation"
+                       class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                       placeholder="Enter the name of occupation"
+                       required />
+            </div>
+            <div class="w-[20%]">
+                <label for="mobile"
+                       class="block text-gray-700 font-medium mb-2">Institution/Firm</label>
+                <input type="text"
+                       asp-for="Institution"
+                       class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                       placeholder="Enter your name of Institution/Firm
+                              "
+                       required />
+            </div>
+            <div class="w-[20%]">
+                <label for="mobile"
+                       class="block text-gray-700 font-medium mb-2">Designation</label>
+                <input type="text"
+                       asp-for="Designation"
+                       class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                       placeholder=""
+                       required />
+            </div>
+            <div class="w-[20%]">
+                <label for="mobile"
+                       class="block text-gray-700 font-medium mb-2">Projected Annual Transaction</label>
+                
+                <input type="text"
+                       asp-for="AnnualTransaction"
+                       class="text-[14px] w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200"
+                       placeholder="NPR"
+                       required />
+            </div>
+        </div>
+
+        <!-- 13 -->
+        <div class="mb-2 flex justify-between">
+            <div class="w-[45%]">
+                <label class="block text-gray-700 font-medium mb-2">Bank account with other FI :</label>
+                <div class="mt-1 relative px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200">
+                    <select   class="form-select block w-full sm:text-sm sm:leading-5 text-[14px]" asp-for="OtherBank">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+            </div>
+            <div class="w-[45%]">
+                <label class="block text-gray-700 font-medium mb-2">
+                    Punishment against any criminal activities in the past:
+                </label>
+                <div class="mt-1 relative px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-200">
+                    <select asp-for="CrimalAct" class="form-select block w-full sm:text-sm sm:leading-5 text-[14px]">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600" type="submit">Next</button>
+        </form>
+    
+    </div>
+ 
+

@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34018.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{DF823FAB-5025-4EF3-8677-8A2A8758582B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrpcServer", "GrpcServer\GrpcServer.csproj", "{D9C3C60C-466F-4757-8F2A-76E6F9A94A53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoButtons", "DemoButtons (save option)\DemoButtons.csproj", "{37E67980-1809-473B-8DE7-B36D18A1BAAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinformServer", "..\Wacom-Rpc-Test\WinformServer\WinformServer.csproj", "{241E24CD-990E-4A5C-83E6-9F9998171673}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF823FAB-5025-4EF3-8677-8A2A8758582B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF823FAB-5025-4EF3-8677-8A2A8758582B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF823FAB-5025-4EF3-8677-8A2A8758582B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DF823FAB-5025-4EF3-8677-8A2A8758582B}.Debug|x86.Build.0 = Debug|Any CPU
+		{DF823FAB-5025-4EF3-8677-8A2A8758582B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF823FAB-5025-4EF3-8677-8A2A8758582B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF823FAB-5025-4EF3-8677-8A2A8758582B}.Release|x86.ActiveCfg = Release|Any CPU
+		{DF823FAB-5025-4EF3-8677-8A2A8758582B}.Release|x86.Build.0 = Release|Any CPU
+		{D9C3C60C-466F-4757-8F2A-76E6F9A94A53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9C3C60C-466F-4757-8F2A-76E6F9A94A53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9C3C60C-466F-4757-8F2A-76E6F9A94A53}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D9C3C60C-466F-4757-8F2A-76E6F9A94A53}.Debug|x86.Build.0 = Debug|Any CPU
+		{D9C3C60C-466F-4757-8F2A-76E6F9A94A53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9C3C60C-466F-4757-8F2A-76E6F9A94A53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9C3C60C-466F-4757-8F2A-76E6F9A94A53}.Release|x86.ActiveCfg = Release|Any CPU
+		{D9C3C60C-466F-4757-8F2A-76E6F9A94A53}.Release|x86.Build.0 = Release|Any CPU
+		{37E67980-1809-473B-8DE7-B36D18A1BAAF}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{37E67980-1809-473B-8DE7-B36D18A1BAAF}.Debug|Any CPU.Build.0 = Debug|x86
+		{37E67980-1809-473B-8DE7-B36D18A1BAAF}.Debug|x86.ActiveCfg = Debug|x86
+		{37E67980-1809-473B-8DE7-B36D18A1BAAF}.Debug|x86.Build.0 = Debug|x86
+		{37E67980-1809-473B-8DE7-B36D18A1BAAF}.Release|Any CPU.ActiveCfg = Release|x86
+		{37E67980-1809-473B-8DE7-B36D18A1BAAF}.Release|Any CPU.Build.0 = Release|x86
+		{37E67980-1809-473B-8DE7-B36D18A1BAAF}.Release|x86.ActiveCfg = Release|x86
+		{37E67980-1809-473B-8DE7-B36D18A1BAAF}.Release|x86.Build.0 = Release|x86
+		{241E24CD-990E-4A5C-83E6-9F9998171673}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{241E24CD-990E-4A5C-83E6-9F9998171673}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{241E24CD-990E-4A5C-83E6-9F9998171673}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{241E24CD-990E-4A5C-83E6-9F9998171673}.Debug|x86.Build.0 = Debug|Any CPU
+		{241E24CD-990E-4A5C-83E6-9F9998171673}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{241E24CD-990E-4A5C-83E6-9F9998171673}.Release|Any CPU.Build.0 = Release|Any CPU
+		{241E24CD-990E-4A5C-83E6-9F9998171673}.Release|x86.ActiveCfg = Release|Any CPU
+		{241E24CD-990E-4A5C-83E6-9F9998171673}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B895A638-D18D-4A24-A940-991537DC5CFE}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,35 @@
+
+syntax = "proto3";
+
+option csharp_namespace = "GrpcServer.Protos.Fingerprint";
+
+service Fingerprint {
+    // Method to initialize the device
+    rpc InitializeDevice (InitializeRequest) returns (InitializeResponse);
+
+    // Method to capture the left fingerprint
+    rpc CaptureLeftFingerprint (CaptureRequest) returns (CaptureResponse);
+
+    // Method to capture the right fingerprint
+    rpc CaptureRightFingerprint (CaptureRequest) returns (CaptureResponse);
+}
+
+message InitializeRequest {
+    // You can include any request parameters needed for initialization here
+}
+
+message InitializeResponse {
+    bool success = 1;
+    string ErrorMessage = 2;
+    // You can include response data, such as success or error messages, here
+}
+
+message CaptureRequest {
+    
+}
+
+message CaptureResponse {
+    bytes fingerprint_data = 1; // This field stores the captured fingerprint data as bytes
+    string ErrorMessage = 2;
+    bool success = 3;
+}

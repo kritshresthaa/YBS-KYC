@@ -1,0 +1,184 @@
+﻿@model Client.Models.ViewModels.AddUserVerificationLeftFingerprintRequest
+<div class=" bg-white">
+    <div class="flex gap-3 justify-center border-b-[1px] border-gray-300 p-4">
+        <div class="w-[80%] flex flex-col items-center gap-2">
+            <!-- Outer  -->
+
+            <div class="w-full   rounded p-5">
+                <!-- Inner -->
+                <div class="sectionc ">
+                    <p class="hidden" asp-for="UserID">
+                        @ViewBag.getId
+                    </p>
+                    <!-- Section C -->
+                    <!-- Fingerprint Placeholder -->
+                    <div class="mb-6">
+                        <label class="block text-center font-semibold text-gray-700 mb-2" for="fingerprint">
+                            Fingerprint Details
+
+                        </label>
+                        <div class="relative flex justify-center flex-col items-center gap-3">
+                            <button id="connect"
+                                    class="bg-blue-500 text-white px-4 py-2 rounded-lg ">
+                                Connect the Device
+                            </button>
+
+                            <div class="flex items-center justify-center gap-[5rem] bg-gray-200 w-[50%] h-[15rem] rounded-lg">
+                                <!-- Left Fingerprint Placeholder -->
+                                <div class="fingerprint-container flex flex-col gap-3 items-center">
+                                    <span class="font-semibold">L</span>
+                                    <i id="iconLeft" class="fa-solid fa-fingerprint text-gray-400 text-8xl  transition duration-300 cursor-pointer"></i>
+                                    <button id="leftCapture" class="capture-button bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded transition duration-300">
+                                        Capture
+                                    </button>
+                                </div>
+
+                                <!-- Right Fingerprint Placeholder -->
+                                <div class="fingerprint-container flex flex-col gap-3 items-center">
+                                    <span class="font-semibold">R</span>
+                                    <i id="iconRight" class="fa-solid fa-fingerprint text-8xl text-gray-400 transition duration-300 cursor-pointer"></i>
+                                    <button id="rightCapture" class="capture-button bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded transition duration-300">
+                                        Capture
+                                    </button>
+                                </div>
+                            </div>
+                            <button id="nextToD" type="button" onclick="navigateToSectionCNext()" class="bg-blue-500 text-white px-4 py-2 rounded-lg">
+                                Next
+                            </button>
+                        </div>
+                        
+                    </div>
+                    <!-- Signature Placeholder -->
+                   @*  <div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="signature">
+                            Signature
+                        </label>
+                        <div class="relative">
+                            <div class="bg-gray-200 h-40 rounded-lg flex items-center justify-center">
+                                <!-- You can add an icon or image here to represent the signature placeholder -->
+                                <i class="fas fa-signature text-6xl text-gray-400"></i>
+                            </div>
+                        </div>
+                    </div> *@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section scripts{
+    <script>
+        function navigateToSectionCNext() {
+            var userId = @ViewBag.getId; // Get the userId from ViewBag
+
+            // Construct the URL for the SectionCNext action method
+            var url = '@Url.Action("SectionCNext", "SectionC")' + '?userId=' + userId;
+
+            // Navigate to the new URL
+            window.location.href = url;
+        }
+
+        document.getElementById("connect").addEventListener("click", function () {
+            $.get("/SectionC/btn_InitSecugen", function (result) {
+                var button = document.getElementById("connect");
+                var iconl = document.getElementById("iconLeft");
+                var iconr = document.getElementById("iconRight");
+
+
+                if (result.result === "Connected") {
+                    button.innerText = "Device Connected";
+                    button.classList.add("bg-green-500"); // Add the green background color
+                    button.classList.remove("bg-blue-500"); // Remove the blue background color
+                    button.classList.add("disabled"); // Add the disabled class
+                    button.disabled = true; // Disable the button
+                    iconl.classList.add("blinking");
+                    iconr.classList.add("blinking");
+
+
+                   
+
+
+                } else {
+                    document.getElementById("connect").innerText = "Device Not Connected";
+    
+                }
+            });
+        });
+
+        //capture fingerprint
+        document.getElementById("leftCapture").addEventListener("click", function () {
+            var userId = @ViewBag.getId; // Get the UserID from ViewBag
+            var request = {
+                UserID: userId
+            };
+            // Capture the left fingerprint
+            fetch('/SectionC/CaptureLeftFingerprint', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(request),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    var icon = document.getElementById("iconLeft");
+                    var leftBtn = document.getElementById("leftCapture");
+                    if (data.result=="Captured") {
+                        console.log("Left fingerprint captured successfully from the js");
+                        icon.classList.add("text-green-500");
+                        icon.classList.remove("text-blue-500");
+                        leftBtn.classList.add("hidden");
+                        // Stop blinking
+                        icon.classList.remove("blinking");
+
+                   
+                        // Update UI or handle the captured data as needed
+                    } else {
+                        console.error("Left fingerprint capture failed: " + data.errorMessage);
+                    }
+                })
+                .catch(error => {
+                    console.error("Error capturing left fingerprint: " + error);
+                });
+        });
+
+        //capture right fingerprint
+        document.getElementById("rightCapture").addEventListener("click", function () {
+            var userId = @ViewBag.getId; // Get the UserID from ViewBag
+            var request = {
+                UserID: userId
+            };
+            // Capture the left fingerprint
+            fetch('/SectionC/CaptureRightFingerprint', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(request),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    var icon = document.getElementById("iconRight");
+                    var leftBtn = document.getElementById("rightCapture");
+                    if (data.result == "Captured") {
+                        console.log("Right fingerprint captured successfully from the js");
+                        icon.classList.add("text-green-500");
+                        icon.classList.remove("text-blue-500");
+                        leftBtn.classList.add("hidden");
+                        // Stop blinking
+                        icon.classList.remove("blinking");
+
+                        // Update UI or handle the captured data as needed
+                    } else {
+                        console.error("Right fingerprint capture failed: " + data.errorMessage);
+                    }
+                })
+                .catch(error => {
+                    console.error("Error capturing Right fingerprint: " + error);
+                });
+        });
+      
+    </script>
+ }

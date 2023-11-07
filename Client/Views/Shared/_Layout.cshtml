@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - YB Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="https://kit.fontawesome.com/a388d01e22.js"
+            crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+          rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="~/css/main.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+</head>
+<body>
+    
+ 
+    <div class="p-3 bg-[#fcfcfc] h-full">
+        <div class="border-[1px] border-gray-300 rounded bg-white">
+            <div class="flex items-center justify-center text-center text-2xl font-bold border-b-[1px] border-gray-300 h-[20%]">
+                <img src="~/css/logo.jpg"/>
+              
+            </div>
+            <div class="bg-[#f3f3f3] flex items-center justify-center text-center font-semibold border-b-[1px] border-gray-300 h-[20%]">
+                <div class="bg-white border-2 p-4 rounded">
+                    <p>Know Your Customer (KYC) Form for Individual Account Opening</p>
+                </div>
+            </div>
+            <div class="flex gap-3 justify-center border-b-[1px] border-gray-300 p-4">
+                <div class="w-[90%] flex flex-col items-center gap-2">
+                    <!-- Outer  -->
+
+                    <div class="w-full border-[1px] border-gray-300 rounded p-5">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+
+
+    <!-- Main JS-->
+    <script src="~/js/SectionA.js" asp-append-version="true"></script>
+    <script src="~/js/SectionC.js" asp-append-version="true"></script>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+   
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
